@@ -18,6 +18,8 @@
     # tools
     bat
     eza
+    gcc
+    ripgrep
     fd
     ripgrep
     fzf

@@ -160,10 +160,7 @@
     git
     wget
     kitty
-    eww
     tmux
-    gcc
-    ripgrep
     libsForQt5.qt5ct
     libsForQt5.qt5.qtwayland
     # libsForQt5.qtstyleplugin-kvantum
@@ -205,11 +202,6 @@
     VISUAL = "nvim";
   };
 
-    programs.command-not-found.enable = false;
-  programs.nix-index = {
-    enable = true;
-    enableFishIntegration = true;
-  };
    
   services.geoclue2.enable = true;
   services.geoclue2.appConfig.gammastep.isAllowed = true;
