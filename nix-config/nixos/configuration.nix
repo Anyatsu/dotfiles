@@ -169,7 +169,7 @@
     # libsForQt5.qtstyleplugin-kvantum
     # libsForQt5.kmix
     # libsForQt5.kcmutils
-    catppuccin-kvantum
+    # catppuccin-kvantum
     # kdePackages.qt6ct
     gparted
     steam-run
@@ -177,7 +177,6 @@
     qjackctl
     pipecontrol
     home-manager
-    sqlite
     libGL
     libva
   ];
@@ -206,6 +205,12 @@
     VISUAL = "nvim";
   };
 
+    programs.command-not-found.enable = false;
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+   
   services.geoclue2.enable = true;
   services.geoclue2.appConfig.gammastep.isAllowed = true;
   services.geoclue2.appConfig.gammastep.isSystem = true;

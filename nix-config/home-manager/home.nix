@@ -78,6 +78,7 @@
     ./git.nix
     # ./hyprland.nix
     ./packages.nix
+    ./music-production.nix
     ];
 
   programs.firefox = {
@@ -94,9 +95,7 @@
     };
   };
 
-  programs.nix-index = {
-    enable = true;
-    enableFishIntegration = true;
-  };
+
+
 
 }

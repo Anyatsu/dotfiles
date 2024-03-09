@@ -27,21 +27,6 @@
     unzip
     glib
 
-    # fun
-    wine-staging
-    winetricks
-
-    # music
-    yabridge
-    yabridgectl
-
-    lsp-plugins
-    guitarix
-    gxplugins-lv2
-    vital
-
-    reaper
-
     # programming
     rustc
     cargo
