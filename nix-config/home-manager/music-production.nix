@@ -1,18 +1,23 @@
-
 { pkgs, ... }:
 {
-  home.packages = with pkgs; with gnome; [
-    wine-staging
-    winetricks
+  home.packages =
+    with pkgs;
+    [
+      wineWowPackages.staging
+      winetricks
 
-    yabridge
-    yabridgectl
+      yabridge
+      yabridgectl
 
-    lsp-plugins
-    guitarix
-    gxplugins-lv2
-    vital
+      lsp-plugins
+      vital
 
-    reaper
-  ];
+      # Guitar
+      guitarix
+      gxplugins-lv2
+      rakarrack
+      neural-amp-modeler-lv2
+
+      reaper
+    ];
 }

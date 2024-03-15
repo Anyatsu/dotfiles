@@ -1,5 +1,6 @@
-{ inputs, pkgs, ... }: {
-#  services.xserver.displayManager.startx.enable = true;
+{ inputs, pkgs, ... }:
+{
+  #  services.xserver.displayManager.startx.enable = true;
 
   programs.hyprland = {
     enable = true;
@@ -9,46 +10,47 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
     xdgOpenUsePortal = true;
   };
 
   security = {
     polkit.enable = true;
-#    pam.services.ags = {};
+    #    pam.services.ags = {};
   };
 
-  environment.systemPackages = with pkgs; with gnome; [
-    loupe
-    adwaita-icon-theme
-    nautilus
-    baobab
-    gnome-calendar
-    gnome-boxes
-    gnome-system-monitor
-    gnome-control-center
-    gnome-weather
-    gnome-calculator
-    gnome-clocks
-    gnome-software # for flatpak
-    wl-gammactl
-    wl-clipboard
-    wayshot
-    pavucontrol
-    brightnessctl
-    swww
-    pulseaudio
-    playerctl
-  ];
+  environment.systemPackages =
+    with pkgs;
+    with gnome;
+    [
+      loupe
+      adwaita-icon-theme
+      nautilus
+      baobab
+      gnome-calendar
+      gnome-boxes
+      gnome-system-monitor
+      gnome-control-center
+      gnome-weather
+      gnome-calculator
+      gnome-clocks
+      gnome-software # for flatpak
+      wl-gammactl
+      wl-clipboard
+      wayshot
+      pavucontrol
+      brightnessctl
+      swww
+      pulseaudio
+      playerctl
+    ];
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
+      wantedBy = [ "default.target" ];
+      wants = [ "default.target" ];
+      after = [ "default.target" ];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
@@ -72,5 +74,22 @@
       gnome-keyring.enable = true;
       gnome-online-accounts.enable = true;
     };
+
+    xserver = {
+      enable = true;
+
+      excludePackages = [ pkgs.xterm ];
+
+      displayManager = {
+        gdm = {
+          enable = true;
+          wayland = true;
+        };
+      };
+    };
+  };
+
+  environment.sessionVariables = {
+    XDG_SESSION_TYPE = "wayland";
   };
 }

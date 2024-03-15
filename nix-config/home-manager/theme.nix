@@ -1,13 +1,15 @@
 { pkgs, ... }:
 let
-  nerdfonts = (pkgs.nerdfonts.override { fonts = [
-    "Ubuntu"
-    "UbuntuMono"
-    "CascadiaCode"
-    "FantasqueSansMono"
-    "FiraCode"
-    "Mononoki"
-  ]; });
+  nerdfonts = pkgs.nerdfonts.override {
+    fonts = [
+      "Ubuntu"
+      "UbuntuMono"
+      "CascadiaCode"
+      "FantasqueSansMono"
+      "FiraCode"
+      "Mononoki"
+    ];
+  };
 
   theme = {
     name = "adw-gtk3-dark";
@@ -37,6 +39,13 @@ in
       cursorTheme.package
       iconTheme.package
       gnome.adwaita-icon-theme
+
+      # corefonts
+      # noto-fonts
+      # noto-fonts-cjk
+      # noto-fonts-emoji
+      # noto-fonts-extra
+      # ipafont
     ];
 
     sessionVariables = {
@@ -81,4 +90,3 @@ in
     platformTheme = "kde";
   };
 }
-

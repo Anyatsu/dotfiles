@@ -1,5 +1,10 @@
-{ config, pkgs, inputs, lib, ... }:
-
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -52,48 +57,63 @@
     # '';
   };
 
-  home.sessionVariables = let
-    makePluginPath = format:
-      (lib.makeSearchPath format [
-        "$HOME/.nix-profile/lib"
-        "/run/current-system/sw/lib"
-        "/etc/profiles/per-user/$USER/lib"
-      ])
-      + ":$HOME/.${format}";
-    in {
-    DSSI_PATH   = makePluginPath "dssi";
-    LADSPA_PATH = makePluginPath "ladspa";
-    LV2_PATH    = makePluginPath "lv2";
-    LXVST_PATH  = makePluginPath "lxvst";
-    VST_PATH    = makePluginPath "vst";
-    VST3_PATH   = makePluginPath "vst3";
-  };
+  home.sessionVariables =
+    let
+      makePluginPath =
+        format:
+        (lib.makeSearchPath format [
+          "$HOME/.nix-profile/lib"
+          "/run/current-system/sw/lib"
+          "/etc/profiles/per-user/$USER/lib"
+        ])
+        + ":$HOME/.${format}";
+    in
+    {
+      DSSI_PATH = makePluginPath "dssi";
+      LADSPA_PATH = makePluginPath "ladspa";
+      LV2_PATH = makePluginPath "lv2";
+      LXVST_PATH = makePluginPath "lxvst";
+      VST_PATH = makePluginPath "vst";
+      VST3_PATH = makePluginPath "vst3";
+    };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  imports = [ 
+  imports = [
     ./theme.nix
     ./ags.nix
     ./git.nix
     # ./hyprland.nix
     ./packages.nix
     ./music-production.nix
-    ];
+  ];
 
   programs.firefox = {
     enable = true;
-    profiles.yuval.extensions = with inputs.firefox-addons.packages.${pkgs.system}; [ ublock-origin bitwarden ];
+    profiles.yuval.extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+      ublock-origin
+      bitwarden
+    ];
   };
 
   services = {
     gammastep = {
       enable = true;
-      provider = "manual";
-      latitude = 32.09;
-      longitude = 34.77;
+      provider = "geoclue2";
+      # latitude = 32.09;
+      # longitude = 34.77;
+      temperature = {
+        day = 5500;
+        night = 3700;
+      };
     };
+
   };
+
+  systemd.user.services.gammastep.Install.WantedBy = [ "default.target" ];
+
+  # home.file.".config/systemd/user/default.target.wants/gammastep.service".text = "";
 
   # programs.fish.enable = true;
   programs.command-not-found.enable = false;
