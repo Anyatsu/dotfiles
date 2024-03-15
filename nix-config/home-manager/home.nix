@@ -100,6 +100,7 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./tmux.nix
     ./theme.nix
     ./ags.nix
     ./git.nix
@@ -120,19 +121,14 @@
     gammastep = {
       enable = true;
       provider = "geoclue2";
-      # latitude = 32.09;
-      # longitude = 34.77;
       temperature = {
         day = 5500;
         night = 3700;
       };
     };
-
   };
 
   systemd.user.services.gammastep.Install.WantedBy = [ "default.target" ];
-
-  # home.file.".config/systemd/user/default.target.wants/gammastep.service".text = "";
 
   # programs.fish.enable = true;
   programs.command-not-found.enable = false;

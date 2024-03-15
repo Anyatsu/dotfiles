@@ -34,6 +34,7 @@
       zip
       unzip
       glib
+      tmux
 
       # programming
       rustc

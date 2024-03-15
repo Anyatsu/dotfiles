@@ -159,7 +159,6 @@
     git
     wget
     kitty
-    tmux
     libsForQt5.qt5ct
     libsForQt5.qt5.qtwayland
     gparted
