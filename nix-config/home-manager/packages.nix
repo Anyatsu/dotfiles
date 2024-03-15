@@ -37,6 +37,7 @@
 
       # programming
       rustc
+      python3
       cargo
       nodejs
       nixfmt-rfc-style

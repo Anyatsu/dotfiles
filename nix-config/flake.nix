@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    zrythm.url = "github:PowerUser64/nixpkgs/zrythm-6.3-b";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -36,15 +36,23 @@
       ...
     }@inputs:
     let
+      inherit (self) outputs;
+
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
+      # Your custom packages
+      # Accessible through 'nix build', 'nix shell', etc
+      packages = import ./pkgs pkgs;
+
       formatter.${system} = pkgs.nixfmt-rfc-style;
+
+      overlays = import ./overlays { inherit inputs; };
 
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs;
+          inherit inputs outputs;
         };
 
         modules = [
@@ -63,12 +71,10 @@
       homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { inherit system; };
 
-        # pass inputs as specialArgs
         extraSpecialArgs = {
-          inherit inputs;
+          inherit inputs outputs;
         };
 
-        # import your home.nix
         modules = [ ./home-manager/home.nix ];
       };
     };

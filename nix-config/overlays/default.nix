@@ -1,21 +1,27 @@
 # This file defines overlays
-{inputs, ...}: {
+{ inputs, ... }:
+{
   # This one brings our custom packages from the 'pkgs' directory
-  additions = final: _prev: import ../pkgs {pkgs = final;};
+  additions = final: _prev: import ../pkgs final;
 
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: rec {
-    # ...
-    # });
+    # guitarix = prev.guitarix.overrideAttrs (
+    #   oldAttrs: {
+    #     src = final.fetchurl {
+    #       url = "https://github.com/brummer10/guitarix/releases/download/V0.46.0/guitarix2-0.46.0.tar.xz";
+    #       sha256 = "sha256-xmC+s/Fs3EVdmebwdM1uorHxDB38SA6EIQRhY33JjEQ=";
+    #     };
+    #   }
+    # );
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through 'pkgs.unstable'
-  unstable-packages = final: _prev: {
-    unstable = import inputs.nixpkgs-unstable {
+  stable-packages = final: _prev: {
+    stable = import inputs.nixpkgs-stable {
       system = final.system;
       config.allowUnfree = true;
     };
