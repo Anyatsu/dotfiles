@@ -18,12 +18,7 @@
     };
 
     nur.url = "github:nix-community/NUR";
-
-    musnix = {
-      url = "github:musnix/musnix";
-    };
     matugen.url = "github:InioX/matugen";
-    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs =

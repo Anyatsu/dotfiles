@@ -13,6 +13,8 @@
     [
       # gui
       d-spy
+      qdirstat
+      foot
       gamescope
       gimp
       discord

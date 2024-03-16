@@ -54,7 +54,7 @@ stdenv.mkDerivation rec {
   src = fetchgit {
     url = "https://github.com/brummer10/guitarix.git";
     rev = "V${version}";
-    sha256 = "sha256-06ojvvXpOTdauAMJUtCOUHgocl71h6ksH38Tn3Akn7g=";
+    sha256 = "sha256-AftC6fQEDzG/3C/83YbK/++bRgP7vPD0E2X6KEWpowc=";
   };
 
   nativeBuildInputs = [

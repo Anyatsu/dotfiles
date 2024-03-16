@@ -122,6 +122,7 @@
 
   hardware.bluetooth = {
     enable = true;
+    # powerOnBoot = true;
     powerOnBoot = false;
     settings.General.Experimental = true; # for gnome-bluetooth percentage
   };
@@ -132,6 +133,18 @@
   programs.fish.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+
+  security.sudo.extraRules = [
+    {
+      users = [ "yuval" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        }
+      ];
+    }
+  ];
   users.users.yuval = {
     isNormalUser = true;
     description = "Yuval";
@@ -158,8 +171,8 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
     wget
-    kitty
     libsForQt5.qt5ct
+    qt6.qtwayland
     libsForQt5.qt5.qtwayland
     gparted
     steam-run
@@ -228,6 +241,13 @@
 
       NIXOS_OZONE_WL = "1";
     };
+
+  # fonts.packages = with pkgs; [
+  #   noto-fonts
+  #   noto-fonts-cjk
+  #   noto-fonts-cjk-sans
+  #   noto-fonts-emoji
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

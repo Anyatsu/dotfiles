@@ -6,6 +6,7 @@ let
       "UbuntuMono"
       "CascadiaCode"
       "FantasqueSansMono"
+      "RobotoMono"
       "FiraCode"
       "Mononoki"
     ];
@@ -40,12 +41,6 @@ in
       iconTheme.package
       gnome.adwaita-icon-theme
 
-      # corefonts
-      # noto-fonts
-      # noto-fonts-cjk
-      # noto-fonts-emoji
-      # noto-fonts-extra
-      # ipafont
     ];
 
     sessionVariables = {

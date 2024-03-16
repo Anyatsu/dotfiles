@@ -66,6 +66,7 @@
     devmon.enable = true;
     udisks2.enable = true;
     upower.enable = true;
+    # blueman.enable = true;
     power-profiles-daemon.enable = true;
     accounts-daemon.enable = true;
     gnome = {
@@ -87,9 +88,5 @@
         };
       };
     };
-  };
-
-  environment.sessionVariables = {
-    XDG_SESSION_TYPE = "wayland";
   };
 }

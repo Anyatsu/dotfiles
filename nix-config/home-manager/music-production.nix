@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    wineWowPackages.staging
+    wineWowPackages.stable
     winetricks
 
     yabridge
@@ -10,12 +10,15 @@
     lsp-plugins
     vital
 
+    hydrogen
+    drumgizmo
+
     # Guitar
     guitarix
-    gxplugins-lv2
     rakarrack
     neural-amp-modeler-lv2
 
+    carla
     reaper
   ];
 }
