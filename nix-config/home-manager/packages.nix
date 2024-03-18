@@ -44,6 +44,7 @@
       cargo
       nodejs
       nixfmt-rfc-style
+      ventoy
     ];
 
   programs = {

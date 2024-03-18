@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    wineWowPackages.stable
+    wineWowPackages.stableFull
     winetricks
 
     yabridge
