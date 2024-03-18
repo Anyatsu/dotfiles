@@ -49,6 +49,6 @@ App.config({
   windows: [
     ...[...Array(hyprland.monitors.length).keys()].map((index) => Bar(index)),
     NotificationPopups(),
-    Overview(),
+    // Overview(),
   ],
 });

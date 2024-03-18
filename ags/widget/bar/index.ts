@@ -6,7 +6,7 @@ const battery = await Service.import("battery");
 const systemtray = await Service.import("systemtray");
 
 const date = Variable("", {
-  poll: [1000, 'date "+%H:%M:%S %b %e."'],
+  poll: [1000, 'date "+%H:%M | %a,  %B %e"'],
 });
 
 // widgets can be only assigned as a child in one container
@@ -45,24 +45,24 @@ function Clock() {
   });
 }
 
-function Media() {
-  const label = Utils.watch("", mpris, "player-changed", () => {
-    if (mpris.players[0]) {
-      const { track_artists, track_title } = mpris.players[0];
-      return `${track_artists.join(", ")} - ${track_title}`;
-    } else {
-      return "Nothing is playing";
-    }
-  });
-
-  return Widget.Button({
-    class_name: "media",
-    on_primary_click: () => mpris.getPlayer("")?.playPause(),
-    on_scroll_up: () => mpris.getPlayer("")?.next(),
-    on_scroll_down: () => mpris.getPlayer("")?.previous(),
-    child: Widget.Label({ label }),
-  });
-}
+// function Media() {
+//   const label = Utils.watch("", mpris, "player-changed", () => {
+//     if (mpris.players[0]) {
+//       const { track_artists, track_title } = mpris.players[0];
+//       return `${track_artists.join(", ")} - ${track_title}`;
+//     } else {
+//       return "Nothing is playing";
+//     }
+//   });
+//
+//   return Widget.Button({
+//     class_name: "media",
+//     on_primary_click: () => mpris.getPlayer("")?.playPause(),
+//     on_scroll_up: () => mpris.getPlayer("")?.next(),
+//     on_scroll_down: () => mpris.getPlayer("")?.previous(),
+//     child: Widget.Label({ label }),
+//   });
+// }
 
 function Volume() {
   const icons = {
@@ -151,7 +151,7 @@ function Left() {
 function Center() {
   return Widget.Box({
     spacing: 8,
-    children: [Media()],
+    children: [Clock()],
   });
 }
 
@@ -160,10 +160,9 @@ function Right() {
     hpack: "end",
     spacing: 8,
     children: [
+      SysTray(),
       Volume(),
       ...(battery.available ? [BatteryLabel()] : []),
-      Clock(),
-      SysTray(),
     ],
   });
 }
