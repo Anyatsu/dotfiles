@@ -21,9 +21,11 @@
       vesktop
       xwaylandvideobridge
       icon-library
+      mpv
 
       # tools
       yazi
+      python312Packages.gpustat
       bat
       eza
       gcc
