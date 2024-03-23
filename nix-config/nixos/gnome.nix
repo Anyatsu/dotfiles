@@ -19,6 +19,7 @@
       (with pkgs; [
         # gnome-text-editor
         gnome-photos
+        # xdg-desktop-portal-gtk 
         gnome-tour
         gnome-connections
         snapshot

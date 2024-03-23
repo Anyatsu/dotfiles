@@ -4,7 +4,7 @@
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland.enable = true;
   };
 
@@ -35,8 +35,12 @@
       gnome-calculator
       gnome-clocks
       gnome-software # for flatpak
+
+      wofi
+      cliphist
       wl-gammactl
       wl-clipboard
+
       wayshot
       pavucontrol
       brightnessctl

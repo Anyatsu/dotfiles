@@ -62,7 +62,7 @@
           (
             { config, ... }:
             {
-              environment.systemPackages = [ config.nur.repos.bandithedoge.zrythm ];
+              # environment.systemPackages = [ config.nur.repos.bandithedoge.zrythm ];
             }
           )
         ];

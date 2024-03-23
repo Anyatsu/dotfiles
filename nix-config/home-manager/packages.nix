@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 {
   #  xdg.desktopEntries = {
   # "lf" = {
@@ -16,12 +16,17 @@
       qdirstat
       foot
       gamescope
+      gxmatcheq-lv2
       gimp
       discord
       vesktop
+      webcord
       xwaylandvideobridge
       icon-library
       mpv
+      obs-studio
+      x42-avldrums
+      # inputs.nur.repos.bandithedoge.zrythm
 
       # tools
       yazi

@@ -20,6 +20,7 @@
 
     carla
     reaper
+    ardour
   ];
 
   # home.file."Music/Production/VST3/MT-PowerDrumKit".source = pkgs.fetchzip {

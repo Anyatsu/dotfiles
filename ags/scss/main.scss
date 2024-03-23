@@ -1,9 +1,0 @@
-$bg: #{"@theme_bg_color"};
-$selected-bg: #{"@theme_selected_bg_color"};
-$fg: #{"@theme_fg_color"};
-$fg-unfocused: #{"@theme_unfocused_fg_color"};
-
-$borders-edge: #{"@wm_borders_edge"};
-
-@import './bar';
-@import './notifications';
