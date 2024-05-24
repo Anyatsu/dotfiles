@@ -1,4 +1,9 @@
-{ pkgs, config, inputs, ... }:
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
 {
   #  xdg.desktopEntries = {
   # "lf" = {
@@ -26,6 +31,8 @@
       mpv
       obs-studio
       x42-avldrums
+      protonvpn-gui
+      networkmanagerapplet
       # inputs.nur.repos.bandithedoge.zrythm
 
       # tools
