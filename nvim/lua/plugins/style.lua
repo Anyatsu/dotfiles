@@ -127,6 +127,11 @@ return {
 
       require('ibl').setup { indent = { highlight = highlight, char = '│' } }
     end,
+    enabled = false;
     -- opts = {}
   },
+  {
+    'nvimdev/indentmini.nvim',
+    opts = {}
+  }
 }

@@ -167,8 +167,12 @@ require('lazy').setup({
     end,
   },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  {
+  "folke/ts-comments.nvim",
+  opts = {},
+  event = "VeryLazy",
+  enabled = vim.fn.has("nvim-0.10.0") == 1,
+  },
 
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'plugins' },
