@@ -26,7 +26,7 @@
       discord
       vesktop
       webcord
-      xwaylandvideobridge
+      # xwaylandvideobridge
       icon-library
       mpv
       obs-studio
