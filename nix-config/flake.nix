@@ -24,6 +24,13 @@
 
     nur.url = "github:nix-community/NUR";
     matugen.url = "github:InioX/matugen";
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.3.0";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -33,6 +40,7 @@
       hyprland,
       home-manager,
       nur,
+      lanzaboote,
       ...
     }@inputs:
     let
@@ -58,6 +66,7 @@
         modules = [
           ./nixos/configuration.nix
           inputs.home-manager.nixosModules.default
+          lanzaboote.nixosModules.lanzaboote
           nur.nixosModules.nur
           (
             { config, ... }:

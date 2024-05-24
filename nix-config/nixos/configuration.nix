@@ -45,7 +45,11 @@
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/etc/secureboot";
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
   # fileSystems."/hdd" =
@@ -191,6 +195,7 @@
     libva
     helvum
     pipewire
+    sbctl
   ];
 
   services.interception-tools = with pkgs; {
@@ -247,6 +252,8 @@
       GBM_BACKEND = "nvidia-drm";
       #    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       WLR_NO_HARDWARE_CURSORS = "1";
+      WLR_DRM_NO_ATOMIC = 1; # Remove when kernel version is >= 6.8
+      __GL_MaxFramesAllowed = 1;
 
       NIXOS_OZONE_WL = "1";
     };
