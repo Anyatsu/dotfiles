@@ -4,3 +4,5 @@ and not set -q TMUX
 end
 
 alias notes='nvim "+Neorg workspace notes"'
+
+starship init fish | source

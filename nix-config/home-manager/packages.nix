@@ -51,6 +51,7 @@
       unzip
       glib
       tmux
+      starship
 
       # programming
       rustc
