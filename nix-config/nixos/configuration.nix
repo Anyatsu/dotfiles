@@ -259,10 +259,18 @@
     };
 
   fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
+    carlito
+    dejavu_fonts
+    ipafont
+    kochi-substitute
+    source-code-pro
+    ttf_bitstream_vera
+    # noto-fonts
+    # noto-fonts-cjk
+    # noto-fonts-cjk-sans
+    # noto-fonts-cjk-serif
+    # noto-fonts-emoji
+    # noto-fonts-extra
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

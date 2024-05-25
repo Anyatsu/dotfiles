@@ -40,7 +40,6 @@ in
       cursorTheme.package
       iconTheme.package
       gnome.adwaita-icon-theme
-
     ];
 
     sessionVariables = {
@@ -67,6 +66,20 @@ in
   };
 
   fonts.fontconfig.enable = true;
+  fonts.fontconfig.defaultFonts = {
+    monospace = [
+      "DejaVu Sans Mono"
+      "IPAGothic"
+    ];
+    sansSerif = [
+      "DejaVu Sans"
+      "IPAPGothic"
+    ];
+    serif = [
+      "DejaVu Serif"
+      "IPAPMincho"
+    ];
+  };
 
   gtk = {
     inherit font cursorTheme iconTheme;

@@ -28,6 +28,7 @@
       nautilus
       baobab
       gnome-calendar
+      gnome-disk-utility
       gnome-boxes
       gnome-system-monitor
       gnome-control-center
