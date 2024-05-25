@@ -59,6 +59,11 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    (pkgs.writeShellScriptBin "command-not-found" ''
+      #!${pkgs.bash}/bin/bash
+      source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
+      command_not_found_handle "$@"
+    '')
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

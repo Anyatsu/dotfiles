@@ -142,6 +142,7 @@
   # services.xserver.libinput.enable = true;
 
   programs.fish.enable = true;
+  programs.command-not-found.enable = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
