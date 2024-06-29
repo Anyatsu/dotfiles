@@ -48,6 +48,17 @@
 
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+
+      globalModules = [
+        lanzaboote.nixosModules.lanzaboote
+        nur.nixosModules.nur
+        (
+          { config, ... }:
+          {
+            # environment.systemPackages = [ config.nur.repos.bandithedoge.zrythm ];
+          }
+        )
+      ];
     in
     {
       # Your custom packages
@@ -58,33 +69,72 @@
 
       overlays = import ./overlays { inherit inputs; };
 
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
+      nixosConfigurations = {
+        default = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+
+          modules = globalModules ++ [
+            ./nixos/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
         };
 
-        modules = [
-          ./nixos/configuration.nix
-          inputs.home-manager.nixosModules.default
-          lanzaboote.nixosModules.lanzaboote
-          nur.nixosModules.nur
-          (
-            { config, ... }:
-            {
-              # environment.systemPackages = [ config.nur.repos.bandithedoge.zrythm ];
-            }
-          )
-        ];
-      };
+        laptop = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
 
-      homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { inherit system; };
-
-        extraSpecialArgs = {
-          inherit inputs outputs;
+          modules = globalModules ++ [
+            ./nixos/hosts/laptop/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
         };
 
-        modules = [ ./home-manager/home.nix ];
       };
+
+      homeConfigurations = {
+        default = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { inherit system; };
+
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+
+          modules = [ ./home-manager/home.nix ];
+        };
+
+        laptop = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { inherit system; };
+
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+
+          modules = [ ./home-manager/home.nix ];
+        };
+
+      };
+
+      # homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
+      #   pkgs = import nixpkgs { inherit system; };
+      #
+      #   extraSpecialArgs = {
+      #     inherit inputs outputs;
+      #   };
+      #
+      #   modules = [ ./home-manager/home.nix ];
+      # };
+
+      # homeConfigurations.laptop = home-manager.lib.homeManagerConfiguration {
+      #   pkgs = import nixpkgs { inherit system; };
+      #
+      #   extraSpecialArgs = {
+      #     inherit inputs outputs;
+      #   };
+      #
+      #   modules = [ ./home-manager/home.nix ];
+      # };
     };
 }
