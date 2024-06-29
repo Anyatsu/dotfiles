@@ -33,7 +33,10 @@
       x42-avldrums
       protonvpn-gui
       networkmanagerapplet
-      # inputs.nur.repos.bandithedoge.zrythm
+      bottles
+      lutris
+      geckodriver
+      zrythm
 
       # tools
       yazi

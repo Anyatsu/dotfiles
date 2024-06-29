@@ -49,11 +49,6 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
-  # fileSystems."/hdd" =
-  #   { device = "/dev/sdc4";
-  #     fsType = "ntfs-3g";
-  #     options = [ "rw" "uid=theUidOfYourUser"];
-  #   };
 
   nix.settings = {
     experimental-features = [
@@ -82,18 +77,25 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
-
 
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;
     settings.General.Experimental = true; # for gnome-bluetooth percentage
   };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  nix.optimise.automatic = true;
+  nix.optimise.dates = [ "20:00" ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -239,7 +241,6 @@
       defaultNetwork.settings.dns_enabled = true;
     };
   };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
