@@ -20,7 +20,6 @@
       d-spy
       qdirstat
       foot
-      gamescope
       gxmatcheq-lv2
       gimp
       discord
@@ -37,6 +36,7 @@
       lutris
       geckodriver
       zrythm
+      quickemu
 
       # tools
       yazi

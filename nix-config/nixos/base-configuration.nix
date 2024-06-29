@@ -15,6 +15,7 @@
     ./hyprland.nix
     ./audio.nix
     ./locale.nix
+    ./gnome.nix
   ];
 
   nixpkgs = {
@@ -91,7 +92,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 14d";
   };
 
   nix.optimise.automatic = true;
@@ -202,9 +203,6 @@
       VST_PATH = makePluginPath "vst";
       VST3_PATH = makePluginPath "vst3";
 
-      WLR_NO_HARDWARE_CURSORS = "1";
-      WLR_DRM_NO_ATOMIC = 1; # Remove when kernel version is >= 6.8
-      __GL_MaxFramesAllowed = 1;
 
       NIXOS_OZONE_WL = "1";
     };

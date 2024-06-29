@@ -14,7 +14,10 @@
 
   environment.systemPackages = with pkgs; [
     steam-run
+    gamescope
   ];
+
+  programs.gamescope.enable = true;
 
   programs.steam = {
     enable = true;
