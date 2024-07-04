@@ -89,6 +89,6 @@
   };
 
   environment.sessionVariables = {
-    PIPEWIRE_LATENCY = "128/48000";
+    PIPEWIRE_LATENCY = "256/48000";
   };
 }

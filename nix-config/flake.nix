@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -31,6 +31,9 @@
       # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    aagl.inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
   };
 
   outputs =
@@ -41,6 +44,7 @@
       home-manager,
       nur,
       lanzaboote,
+      aagl,
       ...
     }@inputs:
     let
@@ -78,6 +82,11 @@
           modules = globalModules ++ [
             ./nixos/hosts/default/configuration.nix
             inputs.home-manager.nixosModules.default
+            {
+              imports = [ aagl.nixosModules.default ];
+              nix.settings = aagl.nixConfig; # Set up Cachix
+              programs.sleepy-launcher.enable = true;
+            }
           ];
         };
 

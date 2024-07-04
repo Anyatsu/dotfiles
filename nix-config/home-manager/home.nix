@@ -101,10 +101,10 @@
       VST_PATH = makePluginPath "vst";
       VST3_PATH = makePluginPath "vst3";
 
-      WLR_NO_HARDWARE_CURSORS = "1";
-      WLR_DRM_NO_ATOMIC = 1; # Remove when kernel version is >= 6.8
+      # WLR_NO_HARDWARE_CURSORS = "1";
+      # WLR_DRM_NO_ATOMIC = 1; # Remove when kernel version is >= 6.8
       __GL_MaxFramesAllowed = 1;
-      GDK_BACKEND = "wayland,x11";
+      # GDK_BACKEND = "wayland,x11";
       # QT_QPA_PLATFORM = "wayland;xcb";
       #SDL_VIDEODRIVER = "x11";
       # CLUTTER_BACKEND = "wayland";
@@ -134,6 +134,29 @@
       sponsorblock
     ];
   };
+
+  programs.chromium = {
+    enable = true;
+    package = pkgs.brave;
+    extensions = [
+      { id = "pnmaklegiibbioifkmfkgpfnmdehdfan"; } # rikaichamp
+      { id = "nngceckbapebfimnlniiiahkandclblb"; } # bitwarden
+      { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; } # sponsorblock
+      # { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock
+
+    ];
+  };
+
+  # dconf = {
+  #   enable = true;
+  #   settings."org/gnome/shell" = {
+  #     disable-user-extensions = false;
+  #     enabled-extensions = with pkgs.gnomeExtensions; [
+  #       forge.extensionUuid
+  #       fullscreen-avoider.extensionUuid
+  #     ];
+  #   };
+  # };
 
   services = {
     gammastep = {

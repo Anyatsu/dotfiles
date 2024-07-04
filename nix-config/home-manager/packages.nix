@@ -37,6 +37,8 @@
       geckodriver
       zrythm
       quickemu
+      heroic
+      fsearch
 
       # tools
       yazi

@@ -13,13 +13,15 @@
       nautilus-open-any-terminal
       gnome.nautilus-python
       wl-clipboard
+      gnomeExtensions.forge
+      gnomeExtensions.fullscreen-avoider
     ];
 
     gnome.excludePackages =
       (with pkgs; [
         # gnome-text-editor
         gnome-photos
-        xdg-desktop-portal-gtk 
+        xdg-desktop-portal-gtk
         gnome-tour
         gnome-connections
         snapshot
@@ -54,18 +56,18 @@
     };
   };
 
-  programs.dconf.profiles = {
-    gdm.databases = [
-      {
-        settings = {
-          "org/gnome/desktop/peripherals/touchpad" = {
-            tap-to-click = true;
-          };
-          "org/gnome/desktop/interface" = {
-            cursor-theme = "Qogir";
-          };
-        };
-      }
-    ];
-  };
+  # programs.dconf.profiles = {
+  #   gdm.databases = [
+  #     {
+  #       settings = {
+  #         "org/gnome/desktop/peripherals/touchpad" = {
+  #           tap-to-click = true;
+  #         };
+  #         "org/gnome/desktop/interface" = {
+  #           cursor-theme = "Qogir";
+  #         };
+  #       };
+  #     }
+  #   ];
+  # };
 }
