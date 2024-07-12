@@ -203,7 +203,6 @@
       VST_PATH = makePluginPath "vst";
       VST3_PATH = makePluginPath "vst3";
 
-
       NIXOS_OZONE_WL = "1";
     };
 

@@ -57,6 +57,7 @@
       glib
       tmux
       starship
+      joystickwake
 
       # programming
       rustc

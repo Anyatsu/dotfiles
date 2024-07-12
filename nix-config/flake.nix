@@ -65,8 +65,6 @@
       ];
     in
     {
-      # Your custom packages
-      # Accessible through 'nix build', 'nix shell', etc
       packages = import ./pkgs pkgs;
 
       formatter.${system} = pkgs.nixfmt-rfc-style;

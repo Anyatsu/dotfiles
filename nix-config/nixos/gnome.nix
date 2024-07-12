@@ -11,14 +11,15 @@
       qogir-icon-theme
       gnome-extension-manager
       nautilus-open-any-terminal
-      gnome.nautilus-python
+      nautilus-python
       wl-clipboard
       gnomeExtensions.forge
       gnomeExtensions.fullscreen-avoider
     ];
 
-    gnome.excludePackages =
-      (with pkgs; [
+    gnome.excludePackages = (
+      with pkgs;
+      [
         # gnome-text-editor
         gnome-photos
         xdg-desktop-portal-gtk
@@ -26,26 +27,19 @@
         gnome-connections
         snapshot
         gedit
-      ])
-      ++ (with pkgs.gnome; [
         cheese # webcam tool
-        gnome-music
         epiphany # web browser
         geary # email reader
         evince # document viewer
-        gnome-characters
         totem # video player
-        tali # poker game
-        iagno # go game
-        hitori # sudoku game
-        atomix # puzzle game
         yelp # Help view
-        gnome-contacts
-        gnome-initial-setup
-        gnome-shell-extensions
-        gnome-maps
+        gnome.gnome-characters
+        gnome.gnome-initial-setup
+        gnome.gnome-shell-extensions
+        gnome.gnome-maps
         gnome-font-viewer
-      ]);
+      ]
+    );
   };
 
   services.xserver = {

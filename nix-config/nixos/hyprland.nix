@@ -24,21 +24,11 @@
 
   environment.systemPackages =
     with pkgs;
-    with gnome;
     [
       loupe
-      adwaita-icon-theme
       nautilus
       baobab
-      gnome-calendar
-      gnome-disk-utility
-      gnome-boxes
-      gnome-system-monitor
-      gnome-control-center
-      gnome-weather
-      gnome-calculator
-      gnome-clocks
-      gnome-software # for flatpak
+      gnome.gnome-software # for flatpak
 
       wofi
       cliphist

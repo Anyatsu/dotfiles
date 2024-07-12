@@ -8,13 +8,13 @@
   curl,
   eigen,
   faust,
+  adwaita-icon-theme,
   fftw,
   fftwFloat,
   gettext,
   glib,
   glib-networking,
   glibmm,
-  gnome,
   gsettings-desktop-schemas,
   gtk3,
   gtkmm3,
@@ -79,7 +79,7 @@ stdenv.mkDerivation rec {
     glib
     glib-networking.out
     glibmm
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     gsettings-desktop-schemas
     gtk3
     gtkmm3
@@ -97,9 +97,8 @@ stdenv.mkDerivation rec {
     zita-resampler
   ];
 
-
   preConfigure = ''
-      cd trunk
+    cd trunk
   '';
 
   wafConfigureFlags = [
@@ -111,7 +110,7 @@ stdenv.mkDerivation rec {
     "--includeresampler"
     "--includeconvolver"
     "--optimization"
-  ]; 
+  ];
 
   # env.NIX_CFLAGS_COMPILE = toString [ "-fpermissive" ];
 
