@@ -39,6 +39,8 @@
       quickemu
       heroic
       fsearch
+      protonup-ng
+      protontricks
 
       # tools
       yazi
