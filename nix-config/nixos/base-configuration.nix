@@ -16,6 +16,7 @@
     ./audio.nix
     ./locale.nix
     ./gnome.nix
+    # ./kde.nix
   ];
 
   nixpkgs = {

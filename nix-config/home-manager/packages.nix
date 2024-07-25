@@ -42,6 +42,9 @@
       protonup-ng
       protontricks
 
+syncthing
+      obsidian
+
       # tools
       yazi
       python312Packages.gpustat
