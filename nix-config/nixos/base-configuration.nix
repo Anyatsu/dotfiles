@@ -15,6 +15,7 @@
     ./hyprland.nix
     ./audio.nix
     ./locale.nix
+    # ./xfce.nix
     ./gnome.nix
     # ./kde.nix
   ];
@@ -157,6 +158,9 @@
     helvum
     pipewire
     sbctl
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
+    docker-compose # start group of containers for dev
   ];
 
   services.interception-tools = with pkgs; {
@@ -209,22 +213,18 @@
     };
 
   fonts.packages = with pkgs; [
-    carlito
-    dejavu_fonts
-    ipafont
-    kochi-substitute
-    source-code-pro
-    ttf_bitstream_vera
-    # noto-fonts
-    # noto-fonts-cjk
-    # noto-fonts-cjk-sans
-    # noto-fonts-cjk-serif
-    # noto-fonts-emoji
-    # noto-fonts-extra
-    dive # look into docker image layers
-    podman-tui # status of containers in the terminal
-    docker-compose # start group of containers for dev
-    #podman-compose # start group of containers for dev
+    # carlito
+    # dejavu_fonts
+    # ipafont
+    # kochi-substitute
+    # source-code-pro
+    # ttf_bitstream_vera
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts-emoji
+    noto-fonts-extra
   ];
 
   # Enable common container config files in /etc/containers

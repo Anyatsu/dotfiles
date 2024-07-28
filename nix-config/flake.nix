@@ -10,6 +10,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+
     hyprland.url = "github:hyprwm/Hyprland/v0.41.2";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -45,6 +48,7 @@
       nur,
       lanzaboote,
       aagl,
+      chaotic,
       ...
     }@inputs:
     let
@@ -80,7 +84,9 @@
           modules = globalModules ++ [
             ./nixos/hosts/default/configuration.nix
             inputs.home-manager.nixosModules.default
+            chaotic.nixosModules.default
             {
+
               imports = [ aagl.nixosModules.default ];
               nix.settings = aagl.nixConfig; # Set up Cachix
               programs.sleepy-launcher.enable = true;

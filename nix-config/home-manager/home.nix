@@ -52,7 +52,6 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-    firefox
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -111,6 +110,7 @@
       # XDG_CURRENT_DESKTOP = "Hyprland";
       # XDG_SESSION_TYPE = "wayland";
       # XDG_SESSION_DESKTOP = "Hyprland";
+      DXVK_CONFIG_FILE = "/home/yuval/Projects/test/dxvk.conf";
     };
 
   # Let Home Manager install and manage itself.
@@ -166,6 +166,11 @@
         day = 5500;
         night = 3700;
       };
+    };
+
+    redshift = {
+      enable = true;
+      provider = "geoclue2";
     };
   };
 

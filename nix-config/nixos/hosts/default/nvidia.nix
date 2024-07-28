@@ -52,6 +52,11 @@
     };
   };
 
+  environment.variables = {
+
+      __GL_MaxFramesAllowed = 1;
+  };
+
   environment.sessionVariables = {
     # LIBVA_DRIVER_NAME = "nvidia";
     # GBM_BACKEND = "nvidia-drm";

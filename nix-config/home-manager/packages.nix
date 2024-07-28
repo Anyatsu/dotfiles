@@ -19,7 +19,11 @@
       # gui
       d-spy
       qdirstat
+
       foot
+      alacritty
+      redshift
+
       gxmatcheq-lv2
       gimp
       discord
@@ -39,10 +43,13 @@
       quickemu
       heroic
       fsearch
+
       protonup-ng
       protontricks
+      gamemode
+      dxvk
 
-syncthing
+      syncthing
       obsidian
 
       # tools
