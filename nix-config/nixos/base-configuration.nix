@@ -17,6 +17,7 @@
     ./locale.nix
     # ./xfce.nix
     ./gnome.nix
+    ./sway.nix
     # ./kde.nix
   ];
 
@@ -145,12 +146,13 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
     wget
+
     libsForQt5.qt5ct
     qt6.qtwayland
     libsForQt5.qt5.qtwayland
+
     gparted
     unzip
-    qjackctl
     pipecontrol
     home-manager
     libGL
@@ -158,6 +160,7 @@
     helvum
     pipewire
     sbctl
+
     dive # look into docker image layers
     podman-tui # status of containers in the terminal
     docker-compose # start group of containers for dev

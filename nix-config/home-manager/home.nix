@@ -182,4 +182,10 @@
     enable = true;
     enableFishIntegration = true;
   };
+
+  services = {
+    syncthing = {
+      enable = true;
+    };
+  };
 }

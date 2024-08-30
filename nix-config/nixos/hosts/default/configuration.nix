@@ -15,7 +15,7 @@
   ];
 
   # boot.kernelPackages = pkgs.linuxPackages_6_8;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   # boot.kernelPackages = pkgs.linuxPackages_cachyos;
   # chaotic.scx.enable = true; # by default uses scx_rustland scheduler
 }

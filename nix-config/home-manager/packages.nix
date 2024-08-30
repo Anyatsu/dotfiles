@@ -17,7 +17,6 @@
     with gnome;
     [
       # gui
-      d-spy
       qdirstat
 
       foot
@@ -29,10 +28,8 @@
       discord
       vesktop
       webcord
-      # xwaylandvideobridge
       icon-library
       mpv
-      obs-studio
       x42-avldrums
       protonvpn-gui
       networkmanagerapplet
@@ -40,14 +37,18 @@
       lutris
       geckodriver
       zrythm
-      quickemu
       heroic
       fsearch
+      transmission_4-gtk
+
+      godot_4
+      blender
+      krita
+      aseprite
+      unityhub
 
       protonup-ng
       protontricks
-      gamemode
-      dxvk
 
       syncthing
       obsidian
@@ -66,10 +67,10 @@
       killall
       zip
       unzip
+      p7zip
       glib
       tmux
       starship
-      joystickwake
 
       # programming
       rustc

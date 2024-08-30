@@ -17,12 +17,11 @@
       gnomeExtensions.fullscreen-avoider
     ];
 
-    gnome.excludePackages = (
-      with pkgs;
-      [
+    gnome.excludePackages =
+      (with pkgs; [
         # gnome-text-editor
+        gnome-console
         gnome-photos
-        xdg-desktop-portal-gtk
         gnome-tour
         gnome-connections
         snapshot
@@ -33,13 +32,20 @@
         evince # document viewer
         totem # video player
         yelp # Help view
-        gnome.gnome-characters
-        gnome.gnome-initial-setup
-        gnome.gnome-shell-extensions
-        gnome.gnome-maps
         gnome-font-viewer
-      ]
-    );
+      ])
+      ++ (with pkgs.gnome; [
+        gnome-music
+        gnome-characters
+        tali # poker game
+        iagno # go game
+        hitori # sudoku game
+        atomix # puzzle game
+        gnome-contacts
+        gnome-initial-setup
+        gnome-shell-extensions
+        gnome-maps
+      ]);
   };
 
   services.xserver = {

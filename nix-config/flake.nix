@@ -13,7 +13,7 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-gaming.url = "github:fufexan/nix-gaming";
 
-    hyprland.url = "github:hyprwm/Hyprland/v0.41.2";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -85,12 +85,11 @@
             ./nixos/hosts/default/configuration.nix
             inputs.home-manager.nixosModules.default
             chaotic.nixosModules.default
-            {
-
-              imports = [ aagl.nixosModules.default ];
-              nix.settings = aagl.nixConfig; # Set up Cachix
-              programs.sleepy-launcher.enable = true;
-            }
+            # {
+            #   imports = [ aagl.nixosModules.default ];
+            #   nix.settings = aagl.nixConfig; # Set up Cachix
+            #   programs.sleepy-launcher.enable = true;
+            # }
           ];
         };
 

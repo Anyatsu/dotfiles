@@ -4,7 +4,7 @@
 
   programs.hyprland = {
     enable = true;
-    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     xwayland.enable = true;
   };
 
@@ -22,26 +22,24 @@
     #    pam.services.ags = {};
   };
 
-  environment.systemPackages =
-    with pkgs;
-    [
-      loupe
-      nautilus
-      baobab
-      gnome.gnome-software # for flatpak
+  environment.systemPackages = with pkgs; [
+    loupe
+    nautilus
+    baobab
+    gnome.gnome-software # for flatpak
 
-      wofi
-      cliphist
-      wl-gammactl
-      wl-clipboard
+    wofi
+    cliphist
+    wl-gammactl
+    wl-clipboard
 
-      wayshot
-      pavucontrol
-      brightnessctl
-      swww
-      pulseaudio
-      playerctl
-    ];
+    wayshot
+    pavucontrol
+    brightnessctl
+    swww
+    pulseaudio
+    playerctl
+  ];
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {

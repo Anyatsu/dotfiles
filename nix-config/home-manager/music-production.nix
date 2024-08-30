@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # wineWowPackages.stableFull
     wineWowPackages.unstableFull
     winetricks
 
@@ -15,13 +14,10 @@
     drumgizmo
 
     # Guitar
-    guitarix
-    rakarrack
     neural-amp-modeler-lv2
 
     carla
     reaper
-    ardour
   ];
 
   # home.file."Music/Production/VST3/MT-PowerDrumKit".source = pkgs.fetchzip {
