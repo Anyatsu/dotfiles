@@ -23,19 +23,16 @@
       alacritty
       redshift
 
-      gxmatcheq-lv2
       gimp
       discord
       vesktop
       webcord
       icon-library
       mpv
-      x42-avldrums
       protonvpn-gui
       networkmanagerapplet
       bottles
       lutris
-      geckodriver
       zrythm
       heroic
       fsearch
@@ -56,18 +53,16 @@
       # tools
       yazi
       python312Packages.gpustat
-      bat
-      eza
       gcc
       ripgrep
       fd
-      ripgrep
       fzf
       libnotify
       killall
       zip
       unzip
       p7zip
+      unar
       glib
       tmux
       starship

@@ -10,7 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -29,14 +28,11 @@
     matugen.url = "github:InioX/matugen";
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.3.0";
+      url = "github:nix-community/lanzaboote/v0.4.1";
 
       # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
-    aagl.inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
   };
 
   outputs =
@@ -47,8 +43,6 @@
       home-manager,
       nur,
       lanzaboote,
-      aagl,
-      chaotic,
       ...
     }@inputs:
     let
@@ -84,12 +78,6 @@
           modules = globalModules ++ [
             ./nixos/hosts/default/configuration.nix
             inputs.home-manager.nixosModules.default
-            chaotic.nixosModules.default
-            # {
-            #   imports = [ aagl.nixosModules.default ];
-            #   nix.settings = aagl.nixConfig; # Set up Cachix
-            #   programs.sleepy-launcher.enable = true;
-            # }
           ];
         };
 

@@ -11,11 +11,10 @@
   programs.hyprlock.enable = true;
   services.hypridle.enable = true;
 
-  xdg.portal = {
-    enable = true;
-    # extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-    xdgOpenUsePortal = true;
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   xdgOpenUsePortal = true;
+  # };
 
   security = {
     polkit.enable = true;

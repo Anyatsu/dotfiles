@@ -216,12 +216,6 @@
     };
 
   fonts.packages = with pkgs; [
-    # carlito
-    # dejavu_fonts
-    # ipafont
-    # kochi-substitute
-    # source-code-pro
-    # ttf_bitstream_vera
     noto-fonts
     noto-fonts-cjk
     noto-fonts-cjk-sans
@@ -251,17 +245,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

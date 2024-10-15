@@ -7,11 +7,24 @@
     yabridge
     yabridgectl
 
+    # Effects
     lsp-plugins
-    vital
+    aether-lv2
+    CHOWTapeModel
+    gxmatcheq-lv2
+    distrho
+    fire
 
+    vital
+    geonkick
+    sfizz
+
+    tuxguitar
+
+    # Drums
     hydrogen
     drumgizmo
+    x42-avldrums
 
     # Guitar
     neural-amp-modeler-lv2
