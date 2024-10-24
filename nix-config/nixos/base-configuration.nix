@@ -17,7 +17,7 @@
     ./locale.nix
     # ./xfce.nix
     ./gnome.nix
-    ./sway.nix
+    # ./sway.nix
     # ./kde.nix
   ];
 
@@ -98,11 +98,11 @@
     options = "--delete-older-than 14d";
   };
 
+  services.journald.extraConfig = "SystemMaxUse=300M";
+
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "20:00" ];
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   programs.fish.enable = true;
   programs.command-not-found.enable = false;
@@ -217,7 +217,6 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-emoji

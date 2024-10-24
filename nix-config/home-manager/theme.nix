@@ -3,12 +3,12 @@ let
   nerdfonts = pkgs.nerdfonts.override {
     fonts = [
       "Ubuntu"
-      # "UbuntuMono"
-      # "CascadiaCode"
-      # "FantasqueSansMono"
-      # "RobotoMono"
-      # "FiraCode"
-      # "Mononoki"
+      "UbuntuMono"
+      "CascadiaCode"
+      "FantasqueSansMono"
+      "RobotoMono"
+      "FiraCode"
+      "Mononoki"
     ];
   };
 

@@ -28,7 +28,6 @@
     gnome.gnome-software # for flatpak
 
     wofi
-    cliphist
     wl-gammactl
     wl-clipboard
 
@@ -36,7 +35,6 @@
     pavucontrol
     brightnessctl
     swww
-    pulseaudio
     playerctl
   ];
 

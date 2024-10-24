@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   # imports = [ inputs.nix-gaming.nixosModules.pipewireLowLatency ];
 
@@ -6,6 +6,10 @@
   # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    pulseaudio
+  ];
 
   services.udev.extraRules = ''
     KERNEL=="rtc0", GROUP="audio"

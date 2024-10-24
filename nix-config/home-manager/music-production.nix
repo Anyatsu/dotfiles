@@ -12,8 +12,8 @@
     aether-lv2
     CHOWTapeModel
     gxmatcheq-lv2
-    distrho
     fire
+    # distrho
 
     vital
     geonkick

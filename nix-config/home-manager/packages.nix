@@ -48,6 +48,7 @@
       protontricks
 
       syncthing
+      deja-dup
       obsidian
 
       # tools
